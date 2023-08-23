@@ -392,12 +392,7 @@ public class BoosCoolDownListener implements Listener {
                 if (keyList[0].equals(String.valueOf(uuid))) {
                     if (event.getMessage().contains(BoosConfigManager.getConfirmCommandMessage())) {
                         commandQueue.put(key, true);
-                        Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(plugin, new Runnable() {
-                            @Override
-                            public void run() {
-                                player.chat(keyList[1]);
-                            }
-                        });
+                        BoosCoolDown.getScheduler().runTaskAtEntity(player, () -> player.chat(keyList[1]));
                         event.setCancelled(true);
                     } else {
                         commandQueue.remove(key);
@@ -418,8 +413,10 @@ public class BoosCoolDownListener implements Listener {
         if (!BoosWarmUpManager.checkWarmUpOK(player, regexCommad)) {
             if (BoosCoolDownManager.checkCoolDownOK(player, regexCommad,
                     originalCommand, cooldownTime)) {
-                BoosWarmUpManager.startWarmUp(plugin, player, regexCommad,
-                        originalCommand, warmupTime);
+                BoosCoolDown.getScheduler().runTaskAtEntity(
+                    player,
+                    () -> BoosWarmUpManager.startWarmUp(plugin, player, regexCommad, originalCommand, warmupTime)
+                );
                 event.setCancelled(true);
             } else {
                 event.setCancelled(true);

@@ -26,8 +26,10 @@ public class BoosWarmUpTimer extends TimerTask {
 
     @Override
     public void run() {
-        bCoolDown.getServer().getScheduler()
-                .scheduleSyncDelayedTask(bCoolDown, new boosWarmUpRunnable());
+        if (player == null) {
+            return;
+        }
+        BoosCoolDown.getScheduler().runTaskAtEntity(player, new boosWarmUpRunnable());
     }
 
     private class boosWarmUpRunnable implements Runnable {

@@ -6,6 +6,7 @@ authors: [LordBoos (boosik)]
 softdepend: [Vault, PlayerPoints]
 description: >
              Shortcuts
+folia-supported: true
 commands:
   booscooldowns:
     description: Reload command.

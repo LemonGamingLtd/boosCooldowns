@@ -11,7 +11,7 @@
     <packaging>pom</packaging>
 	<url>http://maven.apache.org</url>
 	<properties>
-		<boosCooldowns.version>3.17.6</boosCooldowns.version>
+		<boosCooldowns.version>3.17.7</boosCooldowns.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<minecraft.version>1.20.1</minecraft.version>
@@ -26,6 +26,10 @@
 		</pluginRepository>
 	</pluginRepositories>
 	<repositories>
+		<repository>
+			<id>papermc-repo</id>
+			<url>https://repo.papermc.io/repository/maven-public/</url>
+		</repository>
 		<repository>
 			<id>dakani</id>
 			<name>Dakani Nexus Repo</name>
@@ -47,5 +51,9 @@
             <id>elmakers-spigot-repo</id>
             <url>https://maven.elmakers.com/repository/</url>
         </repository>
+		<repository>
+			<id>lemongaming-repo</id>
+			<url>https://repo.lemongaming.ltd/repository/maven-public/</url>
+		</repository>
 	</repositories>
 </project>
